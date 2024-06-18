@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<span id="iconSpan">
+    <img src="Crunchyroll.png" alt="icon1" class="icon" data-name="Crunchyroll" data-url="https://www.crunchyroll.com/">
+    <img src="Facebook.png" alt="icon2" class="icon" data-name="Facebook" data-url="https://www.facebook.com">
+    <img src="PlayStation.png" alt="icon1" class="icon" data-name="PlayStation" data-url="https://www.playstation.com/en-us/playstation-network/">
+    <img src="Reddit.png" alt="icon2" class="icon" data-name="Reddit" data-url="https://www.reddit.com">
+    <img src="Webtoon.png" alt="icon1" class="icon" data-name="Webtoon" data-url="https://www.webtoons.com/en/">
+    <img src="YouTube.png" alt="icon2" class="icon" data-name="YouTube" data-url="https://www.youtube.com">
+</span>
+
+<p>In: <span id="inText"></span></p>
+<p>Out: <span id="outText"></span></p>
+<p>Mouse X: <span id="mouseX"></span>, Y: <span id="mouseY"></span></p>
+
+<div id="enlargedIconArea"></div>
+
+<script>
+    var icons = document.getElementsByClassName('icon');
+
+    for (var i = 0; i < icons.length; i++) {
+    icons[i].style.height = '100px';
+
+    icons[i].addEventListener('mouseenter', function(event) {
+        document.getElementById('inText').textContent = event.target.dataset.name;
+        event.target.style.opacity = 0.5;
+    });
+
+    icons[i].addEventListener('mouseleave', function(event) {
+        document.getElementById('outText').textContent = event.target.dataset.name;
+        event.target.style.opacity = 1.0;
+    });
+
+    icons[i].addEventListener('dblclick', function(event) {
+        window.open(event.target.dataset.url, '_blank');
+    });
+
+    icons[i].addEventListener('click', function(event) {
+        var enlargedIconArea = document.getElementById('enlargedIconArea');
+
+        // Remove the previous enlarged icon if any
+        while (enlargedIconArea.firstChild) {
+            enlargedIconArea.removeChild(enlargedIconArea.firstChild);
+        }
+
+        // Display the new enlarged icon
+        var enlargedIcon = event.target.cloneNode();
+        enlargedIcon.style.height = '200px';
+        enlargedIconArea.appendChild(enlargedIcon);
+    });
+}
+    document.getElementById('iconSpan').addEventListener('mousemove', function(event) {
+        document.getElementById('mouseX').textContent = event.pageX;
+        document.getElementById('mouseY').textContent = event.pageY;
+    });
+</script>
+
+</body>
+</html>

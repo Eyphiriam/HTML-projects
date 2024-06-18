@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Importing the jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+<button id="getRequest">GET</button>
+<button id="putRequest">POST</button>
+<button id="postRequest">PUT</button>
+<button id="deleteRequest">DELETE</button>
+<div id="result"></div>
+
+<script>
+    $(document).ready(function(){
+        $('#getRequest').click(function(){
+            $.ajax({
+                url: '/grade',
+                type: 'GET',
+                success: function (result) {
+                    $('#result').html(result);
+                },
+                error: function (err) {
+                    $('#result').html('Error: ' + err.statusText);
+                }
+            });
+        });
+
+        $('#putRequest').click(function(){
+            $.ajax({
+                url: '/grade',
+                type: 'PUT',
+                success: function (result) {
+                    $('#result').html(result);
+                },
+                error: function (err) {
+                    $('#result').html('Error: ' + err.statusText);
+                }
+            });
+        });
+
+        $('#postRequest').click(function(){
+            $.ajax({
+                url: '/grade',
+                type: 'POST',
+                success: function (result) {
+                    $('#result').html(result);
+                },
+                error: function (err) {
+                    $('#result').html('Error: ' + err.statusText);
+                }
+            });
+        });
+
+        $('#deleteRequest').click(function(){
+            $.ajax({
+                url: '/grade',
+                type: 'DELETE',
+                success: function (result) {
+                    $('#result').html(result);
+                },
+                error: function (err) {
+                    $('#result').html('Error: ' + err.statusText);
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validation</title>
+    <style>
+        .black-text {
+            color: black;
+        }
+        .invalid-input {
+            border: 1px solid orange;
+        }
+        .form-group {
+            margin-bottom: 10px;
+        }
+        label {
+            display: inline-block;
+            width: 160px; /* Adjust based on your layout */
+            text-align: right;
+            margin-right: 10px;
+        }
+        .form-group input,
+        .form-group select {
+            display: inline-block;
+        }
+        .buttons {
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <form id="getinfo">
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" minlength="4" maxlength="12"> 
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="text" id="email">
+        </div>
+
+        <div class="form-group">
+            <label for="phoneNumber">Phone Number:</label>
+            <input type="text" id="phone">
+        </div>
+
+        <div class="form-group">
+            <label for="password">Enter Password:</label>
+            <input type="text" id="password">
+        </div>
+
+        <div class="form-group">
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="text" id="confirmPassword">
+        </div>
+
+        <div class="form-group">
+            <label>Gender:</label>
+            <input type="radio" id="male" name="gender" value="male">Male
+            <input type="radio" id="female" name="gender" value="female">Female        
+            <input type="radio" id="other" name="gender" value="other">Other
+        </div>
+
+        <div class="form-group">
+            <label>Age:</label>
+            <select id = "ageGroup">
+                <option value="i"></option>
+                <option value="ii">&lt;21 years old</option>
+                <option value="iii">21 - 25 years old</option>
+                <option value="iv">26 - 35 years old</option>
+                <option value="v">36 - 50 years old</option>
+                <option value="vi">&gt;50 years old</option> 
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Favorite Music Genre:</label>
+            <input type="checkbox" name="musicGenre" value="pop">Pop
+            <input type="checkbox" name="musicGenre" value="hipHop">Hiphop
+            <input type="checkbox" name="musicGenre" value="jazz">Jazz
+            <input type="checkbox" name="musicGenre" value="Rock">Rock
+            <input type="checkbox" name="musicGenre" value="classicalMusic">Classical Music
+            <input type="checkbox" name="musicGenre" value="country">Country
+        </div>
+
+        <div class="form-group">
+            <label for="submit" style="float: left;">&nbsp;</label>
+            <div class="buttons">
+                <input type="button" value="Submit" id = "submitBtn">
+                <input type="button" value="Clear" id="clearBtn">
+            </div>
+        </div>
+        <div id = "errorMessage" style = "color: red; font-weight: bold;";></div>
+    </form>
+
+    <script src="validation.js"></script>
+</body>
+</html>
+
